@@ -17,6 +17,7 @@ const QuestionCard: React.FC<QuestionProps> = ({
     setIsCorrect(answer === question.correctAnswer);
     setTimeout(() => {
       setIsCorrect(null);
+      setSelectedAnswer(null);
       onNextQuestion();
     }, 3000);
   };
