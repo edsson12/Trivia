@@ -2,10 +2,17 @@
 
 import React from "react";
 import { QuestionProps } from "./Question.interface";
+import { motion } from "framer-motion";
 
 const Explanation: React.FC<QuestionProps> = ({ question, onNextQuestion }) => {
   return (
-    <div className="p-4 bg-white shadow-md rounded-md w-96">
+    <motion.div
+      className="bg-white rounded-md shadow-md p-8"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.5 }}
+    >
       <p className="text-lg font-bold mb-4">{question.explanation}</p>
       <button
         onClick={onNextQuestion}
@@ -13,7 +20,7 @@ const Explanation: React.FC<QuestionProps> = ({ question, onNextQuestion }) => {
       >
         Siguiente Pregunta
       </button>
-    </div>
+    </motion.div>
   );
 };
 

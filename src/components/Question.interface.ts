@@ -9,4 +9,6 @@ export interface Question {
 export interface QuestionProps {
   question: Question;
   onNextQuestion: () => void;
+  hasAnswered?: boolean;
+  selectedAnswer?: string | null | undefined;
 }
