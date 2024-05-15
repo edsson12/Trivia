@@ -3,10 +3,12 @@
 import React, { useState } from "react";
 import { QuestionProps } from "./Question.interface";
 import { motion } from "framer-motion";
+import questions from "../utils/questions";
 
 const QuestionCard: React.FC<QuestionProps> = ({
   question,
   onNextQuestion,
+  currentQuestionIndex,
 }) => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
@@ -35,6 +37,10 @@ const QuestionCard: React.FC<QuestionProps> = ({
       exit={{ opacity: 0, scale: 0.8 }}
       transition={{ duration: 0.5 }}
     >
+      <h2 className="text-center text-lg font-bold mb-4">
+        Pregunta {currentQuestionIndex?  currentQuestionIndex:null}/{questions.length}:{" "}
+        {question.question}
+      </h2>
       <h2 className="text-lg font-bold mb-4">{question.question}</h2>
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {question.options.map((option, index) => (

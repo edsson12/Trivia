@@ -64,7 +64,7 @@ const Quiz: React.FC = () => {
     }
   };
 
-    const handleAnswer = (answer: string) => {
+  const handleAnswer = (answer: string) => {
     if (!hasAnswered) {
       setSelectedAnswer(answer); // Actualiza la respuesta seleccionada
       setUserAnswers([...userAnswers, answer]);
@@ -94,8 +94,10 @@ const Quiz: React.FC = () => {
           >
             <QuestionCard
               question={currentQuestion}
-              selectedAnswer={selectedAnswer} 
+              selectedAnswer={selectedAnswer}
               onNextQuestion={() => handleAnswer(currentQuestion.correctAnswer)}
+              currentQuestionIndex={currentQuestionIndex + 1} // Agregamos 1 porque los índices comienzan en 0
+              totalQuestions={questions.length}
             />
           </motion.div>
         )}
@@ -124,7 +126,7 @@ const Quiz: React.FC = () => {
                 ¡Has completado el Gluco Quiz!
               </h2>
               <h2 className="text-center text-lg font-bold mb-4">
-                Puntaje total: {score}
+                Puntaje total: {score.toFixed(2)}
               </h2>
               <button
                 onClick={handleRestart}

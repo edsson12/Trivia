@@ -11,4 +11,6 @@ export interface QuestionProps {
   onNextQuestion: () => void;
   hasAnswered?: boolean;
   selectedAnswer?: string | null | undefined;
+  currentQuestionIndex?: number;
+  totalQuestions?: number;
 }
