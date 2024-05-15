@@ -17,11 +17,15 @@ const QuestionCard: React.FC<QuestionProps> = ({
     setIsCorrect(answer === question.correctAnswer);
     setTimeout(() => {
       setIsCorrect(null);
-      setSelectedAnswer(null);
       onNextQuestion();
     }, 3000);
   };
 
+  // const onNextQuestion = () => {
+  //   // Restablece la respuesta seleccionada a null aquí
+  //   setSelectedAnswer(null);
+  //   // Resto del código para manejar la siguiente pregunta...
+  // };
   return (
     <motion.div
       className="bg-white rounded-md shadow-md p-8"
